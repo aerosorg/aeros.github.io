@@ -2,166 +2,371 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AEROS Org | Animated</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEROS Org | Exploring Beyond</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Inline Animation Styles -->
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+      background: radial-gradient(circle at center, #0d0d1a 0%, #000000 90%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Background starfield */
+    .stars::before {
+      content: "";
+      position: fixed;
+      width: 200vw;
+      height: 200vh;
+      background: url('https://raw.githubusercontent.com/kognise/water.css/master/src/starfield.svg') repeat;
+      background-size: cover;
+      animation: twinkle 10s infinite ease-in-out alternate;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.15; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0.15; }
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #0ff !important;
+      text-shadow: 0 0 8px #0ff;
+    }
+
+    .glass-bg {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+.glass-bg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
     @keyframes flyAcross {
       0% { transform: translateX(-150%); }
-      100% { transform: translateX(150%); }
+      100% { transform: translateX(150vw); }
     }
-    @keyframes floatUpDown {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
     }
-    @keyframes pulseSpin {
-      0% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.1) rotate(10deg); }
-      100% { transform: scale(1) rotate(0deg); }
-    }
-    .rocket-fly {
-      position: absolute;
-      top: 10px;
-      left: -150px;
-      font-size: 2rem;
-      animation: flyAcross 10s linear infinite;
-      z-index: 1000;
-    }
-    .star-float {
-      animation: floatUpDown 4s ease-in-out infinite;
-      display: inline-block;
-    }
-    .sun-pulse {
-      animation: pulseSpin 6s ease-in-out infinite;
-      display: inline-block;
-    }
+
+    footer a:hover {
+  color: #fcb045 !important;
+  transition: color 0.3s ease;
+}
+
+.space-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(to top, #000000, #111111);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-icon {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: #fcb045;
+}
+
+
   </style>
 </head>
 <body>
+  <div class="stars"></div>
 
-  <!-- 🚀 Rocket Animation -->
-  <div class="rocket-fly">🚀</div>
-
-  <!-- Sticky Transparent Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">AEROS Org 🌌</a>
+      <a class="navbar-brand fw-bold" href="#">AEROS 🌌</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#space">Space</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galaxy">Galaxy</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nebula">Nebula</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-primary text-white text-center py-5" style="margin-top: 72px;">
-    <div class="container" data-aos="fade-up">
-      <h1 class="display-4 fw-bold">Welcome to AEROS Org 🌠</h1>
-      <p class="lead">Exploring the universe with passion and purpose 🧑‍🚀</p>
+  <!-- Hero -->
+  <section class="text-center py-5" style="margin-top: 100px;" data-aos="fade-up">
+    <div class="container">
+      <h1 class="display-4 fw-bold">AEROS Org — Exploring Beyond 🚀</h1>
+      <p class="lead">From Earth to the Outer Reaches of the Universe</p>
     </div>
   </section>
 
   <!-- About Section -->
   <section class="py-5" id="about">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-md-6 text-center" data-aos="zoom-in">
-          <div class="fs-1">
-            <span class="sun-pulse">☀️</span>
-            <span class="star-float ms-3 me-3">🌟</span>
-            <span class="star-float">🧑‍🚀</span>
-          </div>
-          <i class="bi bi-stars text-primary mt-4" style="font-size: 6rem;"></i>
-        </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <h2>About AEROS</h2>
-          <p>We're an open innovation community advancing AstroTech, Aerospace, and science education. Our mission is to empower future explorers and researchers with hands-on tools and real impact.</p>
-          <ul class="list-unstyled">
-            <li><i class="bi bi-rocket-takeoff text-danger me-2"></i> Launch-ready student projects</li>
-            <li><i class="bi bi-lightning-charge text-warning me-2"></i> Community-powered innovation</li>
-            <li><i class="bi bi-mortarboard text-success me-2"></i> Research & learning by doing</li>
-            <li><i class="bi bi-globe2 text-info me-2"></i> Global collaboration for local change</li>
-          </ul>
-        </div>
+      <div class="glass-card" data-aos="fade-up">
+        <h2 class="text-info">🌠 Who We Are</h2>
+        <p>AEROS is a futuristic open-space community merging astrophysics, satellite tech, AI, and education. We build, launch, and educate to make space accessible.</p>
+        <ul>
+          <li>🛰️ SmallSat R&D for deep-space communication</li>
+          <li>🧬 Space Biology & Life Support Pod Simulation</li>
+          <li>👩‍🚀 Astronaut training outreach for students</li>
+          <li>🛸 Gravity simulation and exoplanet modeling</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section class="bg-light py-5" id="projects">
-    <div class="container" data-aos="fade-up">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold">Ongoing Research 🧪</h2>
-        <p class="text-muted">Ideas flying high and building futures ✨</p>
+  <section class="py-5 bg-black" id="projects">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="text-warning">🚧 Cosmic Projects</h2>
+        <p>Innovative missions led by students and dreamers</p>
       </div>
-      <div class="row g-4 justify-content-center">
-
-        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="bi bi-telescope text-primary me-2"></i>AstroTech Alpha
-              </h5>
-              <p class="card-text">Modular telescopes designed for classrooms, skywatchers, and remote observatories. Built to inspire.</p>
-            </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card" data-aos="fade-up">
+            <h5>🔭 AstroTech Alpha</h5>
+            <p>Open-source telescopes & sky-mapping tools for education and public research.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="bi bi-cpu text-success me-2"></i>MicroSat Lab
-              </h5>
-              <p class="card-text">Prototyping mini satellites with open hardware platforms, sensors, and onboard AI for edge space research.</p>
-            </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+            <h5>🛰️ MicroSat Lab</h5>
+            <p>Experimental nanosatellites with AI onboard for climate and biology research.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="bi bi-cloud-lightning-rain text-warning me-2"></i>Atmos Data Mapping
-              </h5>
-              <p class="card-text">Sensor-driven citizen science network measuring atmospheric data for climate change studies and disaster prep.</p>
-            </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+            <h5>🧪 LifePod Simulation</h5>
+            <p>Self-contained environments for deep space missions studying biostasis and growth.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-4">
-    <div class="container">
-      <p class="mb-0">&copy; 2025 AEROS Org. Exploring Beyond. 🌌</p>
+  <!-- Space Menu Section -->
+<section class="py-5" id="space">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-light">🪐 Space Menu</h2>
+        <p class="text-muted">Explore our cosmic categories — dive into nebulae, galaxies, tech & beyond.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+  
+        <!-- Galaxy -->
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in">
+          <div class="card text-light border-0 shadow-lg glass-bg h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-gem text-warning fs-1 mb-3"></i>
+              <h5 class="card-title">Galaxies</h5>
+              <p class="card-text">Formation, evolution, and interaction of galaxies from Milky Way to beyond.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Nebula -->
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card text-light border-0 shadow-lg glass-bg h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-clouds text-info fs-1 mb-3"></i>
+              <h5 class="card-title">Nebulae</h5>
+              <p class="card-text">Colorful stellar nurseries—learn how stars are born in cosmic clouds.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Deep Space -->
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="card text-light border-0 shadow-lg glass-bg h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-stars text-primary fs-1 mb-3"></i>
+              <h5 class="card-title">Deep Space</h5>
+              <p class="card-text">Beyond the heliosphere—black holes, wormholes, cosmic background and more.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Space Life -->
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card text-light border-0 shadow-lg glass-bg h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-heart-pulse text-danger fs-1 mb-3"></i>
+              <h5 class="card-title">Space Life</h5>
+              <p class="card-text">Space health, life pods, biology experiments & interstellar habitats.</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Galaxy Info Card -->
+<section class="py-5" id="galaxy">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-light">🌌 All About Galaxies</h2>
+        <p class="text-muted">Explore the swirling cities of stars, time, and dust across the cosmos.</p>
+      </div>
+  
+      <div class="card glass-bg text-light border-0 shadow-lg p-4">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5 text-center" data-aos="zoom-in">
+            <img src="https://images.unsplash.com/photo-1515705576963-95cad62945b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 class="img-fluid rounded-4 shadow" alt="Galaxy Image" />
+            <p class="mt-3 small text-muted">🔭 The Andromeda Galaxy — closest major galaxy to the Milky Way</p>
+          </div>
+  
+          <div class="col-md-7" data-aos="fade-left">
+            <h3 class="fw-bold mb-3">What is a Galaxy?</h3>
+            <p>A galaxy is a vast system of stars, dust, gas, and dark matter bound together by gravity. Our home, the Milky Way, is just one of billions in the observable universe.</p>
+  
+            <h5 class="mt-4">💫 Lifespan & Evolution</h5>
+            <ul>
+              <li>🌟 Formed ~1–2 billion years after the Big Bang (~12–13 billion years ago)</li>
+              <li>🌀 Evolve via collisions, black holes, and supernovae</li>
+              <li>🌌 Galaxies can merge to form new shapes over billions of years</li>
+            </ul>
+  
+            <h5 class="mt-4">🔭 Types of Galaxies</h5>
+            <ul>
+              <li>🔘 **Elliptical** — Older, redder stars, little gas</li>
+              <li>🌪️ **Spiral** — Arms, dust lanes, active star formation (like the Milky Way)</li>
+              <li>💥 **Irregular** — No set shape, often post-collision</li>
+            </ul>
+  
+            <h5 class="mt-4">🚀 Fun Fact</h5>
+            <p>In ~4.5 billion years, the Milky Way will likely merge with Andromeda to form a new galaxy — nicknamed **"Milkomeda"** 🌠</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Nebula Info Section -->
+<section class="py-5" id="nebula">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-light">🌠 All About Nebulae</h2>
+        <p class="text-muted">Where stars are born and legends begin.</p>
+      </div>
+  
+      <div class="card glass-bg text-light border-0 shadow-lg p-4">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5 text-center" data-aos="zoom-in">
+            <img src="https://images.unsplash.com/photo-1610296669228-602fa827fc1f?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 class="img-fluid rounded-4 shadow" alt="Nebula Image" />
+            <p class="mt-3 small text-muted">🌌 The Pillars of Creation – Eagle Nebula, taken by Hubble</p>
+          </div>
+  
+          <div class="col-md-7" data-aos="fade-left">
+            <h3 class="fw-bold mb-3">What is a Nebula?</h3>
+            <p>A nebula (plural: nebulae) is a giant cloud of dust and gas in space. Some nebulae are regions where new stars are forming, while others are the remnants of dead or dying stars.</p>
+  
+            <h5 class="mt-4">🌟 Star Nurseries</h5>
+            <ul>
+              <li>🌈 Made of hydrogen, helium, plasma, and dust</li>
+              <li>🔥 Birthplaces of stars and planetary systems</li>
+              <li>🪐 Often glow with vivid colors from ionized gas</li>
+            </ul>
+  
+            <h5 class="mt-4">☁️ Types of Nebulae</h5>
+            <ul>
+              <li>💡 **Emission Nebulae** – Glow from energized gas (e.g., Orion Nebula)</li>
+              <li>🔦 **Reflection Nebulae** – Shine by reflecting starlight</li>
+              <li>🌑 **Dark Nebulae** – Block light, appear as voids (e.g., Horsehead Nebula)</li>
+              <li>💥 **Planetary Nebulae** – Expelled outer layers of dying stars</li>
+            </ul>
+  
+            <h5 class="mt-4">💬 Fun Fact</h5>
+            <p>The word “nebula” comes from Latin, meaning “cloud.” Nebulae can be light-years across — some are larger than our entire solar system! 🌌</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  
+ <!-- Sleek Space Footer -->
+<footer class="space-footer bg-black text-light pt-5 pb-4 mt-5">
+    <div class="container text-center">
+      <h5 class="fw-semibold mb-3" style="letter-spacing: 1px;">AEROS Org</h5>
+      <p class="text-muted small mb-4" style="max-width: 600px; margin: 0 auto;">
+        Designing the future of space exploration — one orbit at a time.
+      </p>
+  
+
+  
+      <div class="d-flex justify-content-center gap-4 mb-4">
+        <a href="#" class="footer-icon"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="footer-icon"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="footer-icon"><i class="bi bi-youtube"></i></a>
+        <a href="#" class="footer-icon"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+  
+      <div class="text-muted small">
+        &copy; 2025 AEROS Org — Made from stardust & imagination.
+      </div>
     </div>
   </footer>
+  
+  
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      once: true,
-      duration: 1000,
-    });
+    AOS.init({ duration: 1000 });
   </script>
 </body>
 </html>
